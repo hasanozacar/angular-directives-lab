@@ -1,0 +1,25 @@
+<main>
+  <app-learning-resources appLog />
+
+  <hr />
+
+  <app-auth appLog />
+  <!-- @if (isAdmin()) {
+  <p>
+    Only authenticated users can access the learning resources. If you are not
+    logged in, please log in to view the content.
+  </p>
+  } -->
+  <p *appAuth="'admin'" appLog class="protected-content admin">
+    Only admins can access the learning resources. If you are not logged in,
+    please log in to view the content.
+  </p>
+  <p *appAuth="'user'" class="protected-content unauthenticated">
+    Only regular users can access the learning resources. If you are not logged
+    in, please log in to view the content.
+  </p>
+  <p *appAuth="'guest'" class="protected-content authenticated">
+    Only guest can access the learning resources. If you are not logged in,
+    please log in to view the content.
+  </p>
+</main>
